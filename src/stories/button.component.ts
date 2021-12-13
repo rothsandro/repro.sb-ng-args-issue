@@ -8,7 +8,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     [ngClass]="classes"
     [ngStyle]="{ 'background-color': backgroundColor }"
   >
-    {{ label }}
+    {{ label }} {{text}}
   </button>`,
   styleUrls: ['./button.css'],
 })
@@ -45,6 +45,9 @@ export default class ButtonComponent {
   @Output()
   onClick = new EventEmitter<Event>();
 
+  // Some calculated value (could also be fetched from a service)
+  text = "hello " + "world";
+ 
   public get classes(): string[] {
     const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';
 
